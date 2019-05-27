@@ -1,21 +1,87 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { Component } from "react"
+import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import buttonBirdyTop from "../images/LillianUnicornNextPage.png"
+
+// import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+// const { markdownRemark } = this.props.data
+// const currentPage = markdownRemark.frontmatter.sidetall
+
+// const prevPage = currentPage - 1 === 0 ? "/" : (currentPage - 1).toString()
+// // const linkToPrevPage = `/bookpage/${prevPage}`
+
+// var conCurrentPage = Number(currentPage)
+const nextPage = 1
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+  <>
+    <SEO title="Geir G" />
+
+    <ul
+      style={{
+        background: `pink`,
+        display: `flex`,
+        flexWrap: `wrap`,
+        justifyContent: `space-between`,
+        listStyle: `none`,
+
+        margin: 0,
+        marginBottom: 0,
+      }}
+    >
+      <li>
+        <Link to="/about" rel="prev">
+          ← about
+        </Link>
+      </li>
+      <li>
+        {nextPage && (
+          <Link to={`/${nextPage}`} rel="next">
+            {nextPage} →
+          </Link>
+        )}
+      </li>
+    </ul>
+
+    <div style={{ maxWidth: `1224`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+    <ul
+      style={{
+        background: `pink`,
+        display: `flex`,
+        flexWrap: `wrap`,
+        justifyContent: `space-between`,
+        listStyle: `none`,
+
+        margin: 0,
+        marginBottom: 0,
+      }}
+    >
+      <li>
+        <Link to="/about" rel="prev">
+          ← about
+        </Link>
+      </li>
+      <li>
+        {nextPage && (
+          <Link to={`/${nextPage}`} rel="next">
+            <img
+              style={{
+                width: "333px",
+                background: `pink`,
+              }}
+              src={buttonBirdyTop}
+              alt="Unicorn button bottom"
+            />
+          </Link>
+        )}
+      </li>
+    </ul>
+    <h1> .</h1>
+  </>
 )
 
 export default IndexPage

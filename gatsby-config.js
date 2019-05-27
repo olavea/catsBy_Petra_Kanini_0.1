@@ -31,7 +31,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/ark`,
-        name: `image`,
+        name: `ark`,
       },
     },
     {
