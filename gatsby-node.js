@@ -2,8 +2,30 @@ const path = require("path")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  createPage({
-    path: "/jukseArk",
-    component: path.resolve("./src/templates/arkLayout.js"),
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                sidetall
+              }
+            }
+          }
+        }
+      }
+    `).then(results => {
+      results.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        createPage({
+          path: node.frontmatter.sidetall,
+          component: path.resolve("./src/templates/arkLayout.js"),
+          context: {
+            slug: node.frontmatter.sidetall,
+          },
+        })
+      })
+      resolve()
+    })
   })
 }
