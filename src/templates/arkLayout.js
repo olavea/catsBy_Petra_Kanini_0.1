@@ -6,11 +6,9 @@ import buttonBirdyTop from "../images/LillianUnicornNextPage.png"
 export default class arkLayout extends Component {
   render() {
     const { markdownRemark } = this.props.data
+
     const currentPage = markdownRemark.frontmatter.sidetall
-
     const prevPage = currentPage - 1 === 0 ? "/" : (currentPage - 1).toString()
-    // const linkToPrevPage = `/bookpage/${prevPage}`
-
     var conCurrentPage = Number(currentPage)
     const nextPage = (conCurrentPage + 1).toString()
 
@@ -89,6 +87,14 @@ export default class arkLayout extends Component {
   }
 }
 
+// import React, { Component } from "react"
+// import { Link, graphql } from "gatsby"
+
+// export default class arkLayout extends Component {
+//   render() {
+//     const { markdownRemark } = this.props.data
+
+//     return (
 // <div>
 // <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
 // </div>
