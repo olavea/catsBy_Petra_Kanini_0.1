@@ -18,7 +18,8 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(results => {
       results.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
-          path: node.frontmatter.sidetall,
+          //          path: "/jukseside",
+          //          path: node.frontmatter.sidetall,
           component: path.resolve("./src/templates/arkLayout.js"),
           context: {
             slug: node.frontmatter.sidetall,
